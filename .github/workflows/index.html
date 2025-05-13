@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chicken Inventory Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        input[type="number"] {
+            width: 50px;
+            margin: 0 10px;
+        }
+        input[type="submit"] {
+            background: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #218838;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chicken Problem Solver</h1>
+    <form method="post">
+        Legs: <input type="number" name="legs" min="0" required>
+        Wings: <input type="number" name="wings" min="0" required>
+        Flesh: <input type="number" name="flesh" min="0" required>
+        <input type="submit" value="Calculate">
+    </form>
+    {% if total_weight is not none %}
+    <div class="result">
+        <h2>Results</h2>
+        <p>Total Weight of Order: {{ total_weight }} kg</p>
+        <p>Chickens Needed: {{ chickens_needed }}</p>
+        <p>Remaining Parts:</p>
+        <ul>
+            <li>Legs: {{ remaining_parts.legs }}</li>
+            <li>Wings: {{ remaining_parts.wings }}</li>
+            <li>Flesh: {{ remaining_parts.flesh }}</li>
+        </ul>
+    </div>
+    {% endif %}
+</body>
+</html>
